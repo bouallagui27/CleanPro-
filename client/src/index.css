@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* نأكدوا على الخلفية الكحلة في السيت كامل */
 html, body {
   background-color: #09090b !important;
   color: white;
@@ -10,12 +9,12 @@ html, body {
   padding: 0;
 }
 html, body {
-  cursor: none !important; /* يخفي السهم العادي */
+  cursor: none !important; 
   font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 a, button, .group {
-  cursor: none !important; /* حتى فوق الروابط يبقى مخفي */
+  cursor: none !important; 
 }
 html.lenis {
   height: auto;

@@ -25,8 +25,8 @@ const Navbar = () => {
         Dashboard
       </button>
       <Link to="/AuthPage">
-        <button className="px-4 ml-5 py-2 text-sm border border-brand-purple text-brand-purple rounded-lg hover:bg-brand-purple hover:text-white transition-all">
-          Login
+        <button className="px-4 ml-5 py-2 text-sm border border-brand-purple text-brand-purple rounded-lg hover:bg-brand-purple delay-75 hover:text-white transition-all">
+          SignUp
         </button>
       </Link>
       </div>

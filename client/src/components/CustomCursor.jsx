@@ -15,14 +15,12 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* 1. النقطة الوسطانية (ثابتة مع الماوس) */}
       <motion.div
         className="fixed top-0 left-0 w-2 h-2 bg-brand-purpleLight rounded-full pointer-events-none z-[9999]"
         animate={{ x: mousePos.x - 4, y: mousePos.y - 4 }}
         transition={{ type: "tween", ease: "backOut", duration: 0 }}
       />
 
-      {/* 2. الدائرة البرانية (تتبع بـ Delay خفيف باش تعطي الـ Effect) */}
       <motion.div
         className="fixed top-0 left-0 w-8 h-8 border border-brand-purpleLight/50 rounded-full pointer-events-none z-[9998]"
         animate={{ x: mousePos.x - 16, y: mousePos.y - 16 }}

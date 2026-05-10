@@ -15,7 +15,7 @@ const User = db.define('user', {
         unique: true, 
         allowNull: false,
         validate: {
-            isEmail: true // يثبت اللي هو Email بالرسمي
+            isEmail: true 
         }
     },
     phone: {
@@ -27,7 +27,6 @@ const User = db.define('user', {
         allowNull: false
     }
 }, {
-    // هذي تزيد createdAt و updatedAt تلقائياً في الجدول
     timestamps: true 
 });
 

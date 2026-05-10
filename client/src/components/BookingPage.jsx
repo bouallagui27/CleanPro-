@@ -1,17 +1,16 @@
 import  { useState } from "react";
+import { useNavigate , Link } from "react-router-dom";
 import {  AnimatePresence } from "framer-motion";
 
-// Import الـ Steps متاعك (ثبت في الـ paths حسب الـ folders متاعك)
 import Step1 from "./booking/Step1";
 import Step2 from "./booking/Step2";
 import Step3 from "./booking/Step3";
 import Step4 from "./booking/Step4";
 
 const BookingPage = () => {
-  // 1. الحالة اللي تعرفنا إحنا في أما مرحلة
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
 
-  // 2. الـ Object الكبير اللي يلم المعلومات الكل من الـ 4 مراحل
   const [formData, setFormData] = useState({
     city: "",
     service: "",
@@ -24,11 +23,9 @@ const BookingPage = () => {
     email: ""
   });
 
-  // 3. Functions التحريك (Next & Back)
   const next = () => setStep((p) => p + 1);
   const back = () => setStep((p) => p - 1);
 
-  // العناوين متاع الـ Stepper الفوقاني
   const stepsHeader = [
     { id: 1, label: "Location & Service" },
     { id: 2, label: "Details" },
@@ -38,14 +35,15 @@ const BookingPage = () => {
 
   return (
     <div className="min-h-screen bg-[#050505] text-white p-6 md:p-12 font-sans">
+              
       <div className="max-w-4xl mx-auto">
+        <Link to="/" className="text-purple-500  mb-4 hover:underline">
+          ← Back to Home
+        </Link>
         
-        {/* --- 1. Stepper (الدوائر والخط) --- */}
-        <div className="relative flex justify-between mb-20 max-w-2xl mx-auto">
-          {/* الخط الخلفي */}
+        <div className="relative mt-5 flex justify-between mb-20 max-w-2xl mx-auto">
           <div className="absolute top-5 left-0 w-full h-[1px] bg-gray-800 -z-0" />
           
-          {/* الخط الملون اللي يتقدم مع الـ Step */}
           <div 
             className="absolute top-5 left-0 h-[1px] bg-purple-500 transition-all duration-500 -z-0" 
             style={{ width: `${((step - 1) / (stepsHeader.length - 1)) * 100}%` }}
@@ -69,10 +67,8 @@ const BookingPage = () => {
           ))}
         </div>
 
-        {/* --- 2. الـ Container الكبير اللي يتبدل محتواه --- */}
         <div className="bg-[#0c0c0e] border border-white/5 p-8 md:p-12 rounded-[32px] shadow-2xl relative">
           
-          {/* AnimatePresence تخلي الصفحات يخرجوا ويدخلوا بـ Animation مزيانة */}
           <AnimatePresence mode="wait">
             {step === 1 && (
               <Step1 key="s1" next={next} data={formData} setData={setFormData} />
@@ -93,7 +89,6 @@ const BookingPage = () => {
 
         </div>
 
-        {/* كلمة لوطة زينة كينما في الـ Figma */}
         <p className="text-center text-gray-600 text-xs mt-10 tracking-widest">
           SECURE 256-BIT SSL ENCRYPTED PAYMENT
         </p>

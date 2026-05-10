@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom' // خلي كان Routes و Route
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import Lenis from '@studio-freight/lenis'
 import AOS from 'aos'
 import 'aos/dist/aos.css' 
@@ -14,8 +14,8 @@ const App = () => {
   const location = useLocation();
   useEffect(() => {
     AOS.init({
-      duration: 1000, // مدة الـ Animation (1 ثانية)
-      once: true,     // تخدم مرة بركة كي تهبط (ما تعاودش كي تطلع)
+      duration: 1000,
+      once: true,     
       easing: 'ease-in-out',
     })
     if (location.pathname !== '/') {
@@ -50,10 +50,8 @@ const App = () => {
       <CustomCursor />
       
       <Routes>
-        {/* الصفحة الرئيسية */}
         <Route path="/" element={<Landingpage />} />
         
-        {/* صفحة الـ Booking */}
         <Route path="/booking" element={<BookingPage />} />
         <Route path="/AuthPage" element={<AuthPage />} />
       </Routes>

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const basePrices = {
   Residential: 50,
@@ -67,9 +68,9 @@ const PriceEstimator = () => {
         <div className="bg-price-gradient rounded-2xl p-6 text-center">
           <p className="text-text-secondary text-sm mb-2">Estimated Price</p>
           <p className="text-white text-5xl font-bold mb-4">{estimated} DT</p>
-         <button className="px-8 py-3  bg-gradient-to-r from-brand-purpleLight to-brand-blue text-white font-bold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] active:scale-95">
-          Book Now
-        </button>
+          <Link to="/booking" className="inline-block px-8 py-3 bg-gradient-to-r from-brand-purpleLight to-brand-blue text-white font-bold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] active:scale-95">
+            Book Now
+          </Link>
         </div>
       </div>
     </section>

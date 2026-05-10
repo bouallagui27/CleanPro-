@@ -1,8 +1,25 @@
+import { useState } from "react";  
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import InputField from "./InputField";
+import AXIOS from "axios";
 
 const LoginForm = () => {
-  
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const loginUser = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await AXIOS.post('http://localhost:3000/login/login', { email, password })
+      if (response.status === 200) {  
+      alert("Login successful! 🎉");
+      localStorage.setItem("token", response.data.token);
+      navigate('/booking');} // Navigate to the dashboard upon successful login
+    } catch (error) {
+      console.error('Login error:', error);
+    }
+  };
   return (
     <motion.div
       key="login"
@@ -17,20 +34,19 @@ const LoginForm = () => {
       Sign in to manage your bookings
     </p>
 
-    <InputField placeholder="Email Address" required type="email"
+    <InputField placeholder="Email Address"  onChange={(e)=> setEmail(e.target.value)} required type="email"
       icon={<i className="fas fa-envelope" />} />
 
-    {/* Forgot password above the field */}
     <div className="flex justify-end mb-1.5 -mt-1">
       <span className="text-[11px] text-purple-500 font-semibold cursor-pointer hover:underline tracking-[0.2px]">
         Forgot password?
       </span>
     </div>
 
-    <InputField placeholder="Password" required type="password"
+    <InputField placeholder="Password"  onChange={(e)=> setPassword(e.target.value)} required type="password"
       icon={<i className="fas fa-lock" />} />
 
-    <button className="
+    <button onClick={loginUser} className="
       w-full mt-2 bg-gradient-to-br from-purple-600 to-purple-800
       rounded-[14px] py-[14px] font-['Plus_Jakarta_Sans']
       text-[14px] font-semibold text-white tracking-[0.3px]

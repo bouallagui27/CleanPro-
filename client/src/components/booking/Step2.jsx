@@ -2,7 +2,6 @@ import { motion } from "framer-motion"; // 1. الـ Import الناقص
 
 const Step2 = ({ next, back, data, setData }) => {
   
-  // 2. الحسبة لازم تكون هوني وسط الـ Function
   const price = 50 + (data.rooms * 20) + (data.area * 1);
 
   return (
@@ -12,7 +11,6 @@ const Step2 = ({ next, back, data, setData }) => {
       exit={{ opacity: 0, x: -20 }}
     >
       <div className="space-y-12">
-        {/* Slider 1: Rooms */}
         <div>
           <label className="block text-gray-400 mb-4 text-lg">
             Number of Rooms: <span className="text-purple-400 font-bold">{data.rooms}</span>
@@ -31,7 +29,6 @@ const Step2 = ({ next, back, data, setData }) => {
           </div>
         </div>
 
-        {/* Slider 2: Area */}
         <div>
           <label className="block text-gray-400 mb-4 text-lg">
             Square Meters: <span className="text-purple-400 font-bold">{data.area} m²</span>
@@ -50,13 +47,11 @@ const Step2 = ({ next, back, data, setData }) => {
           </div>
         </div>
 
-        {/* Price Display */}
         <div className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-500/30 p-8 rounded-2xl text-center">
           <p className="text-gray-400 text-sm mb-2">Estimated Price</p>
           <h3 className="text-4xl font-bold text-white">{price} DT</h3>
         </div>
 
-        {/* Navigation Buttons */}
         <div className="flex justify-between mt-10">
           <button 
             onClick={back} 

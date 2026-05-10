@@ -1,22 +1,44 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const createUser = async (data) => {
-    // 1. نصنعو "الكمية متاع الملح" (Salt) باش التشفير يكون قوي
     const salt = await bcrypt.genSalt(10);
-    
-    // 2. نشفرو المودباس اللي جاي من الـ Frontend
     const hashedPassword = await bcrypt.hash(data.password, salt);
     
-    // 3. نعوضو المودباس العادي بالمشفر قبل ما نصبه في الـ DB
     const newUser = await User.create({
         ...data,
         password: hashedPassword
     });
 
-    // نرجعوا البيانات من غير مودباس للـ Frontend
     const { password, ...userWithoutPassword } = newUser.toJSON();
     return userWithoutPassword;
-}
+};
 
-module.exports = { createUser };
+const loginUser = async (email, password) => {
+    const user = await User.findOne({ where: { email: email } });
+    
+    if (!user) {
+        throw new Error('email or password is incorrect');
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+        throw new Error('email or password is incorrect');
+    }
+
+    const token = jwt.sign(
+        { id: user.id, email: user.email },
+        process.env.JWT_SECRET,
+        { expiresIn: '1d' }
+    );
+
+    const { password: hashedPassword, ...userWithoutPassword } = user.get({ plain: true });
+
+    return {
+        user: userWithoutPassword,
+        token: token
+    };
+};
+
+module.exports = { createUser, loginUser };

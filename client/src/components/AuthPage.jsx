@@ -10,7 +10,6 @@ const AuthPage = () => {
     <div className="min-h-screen bg-[#080810] flex flex-col items-center justify-center p-4 text-white"
          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
 
-      {/* Tab switcher */}
       <div className="flex bg-[#0f0f1a] border border-purple-900/20 p-1 rounded-2xl mb-6 w-full max-w-[260px]">
         <button
           onClick={() => setIsLogin(false)}
@@ -28,14 +27,11 @@ const AuthPage = () => {
         </button>
       </div>
 
-      {/* Card */}
       <div className="w-full max-w-[440px] bg-[#0d0d1a] border border-purple-900/20 rounded-[28px] p-9 relative overflow-hidden">
 
-        {/* Ambient glow blobs */}
         <div className="absolute -top-20 -right-20 w-52 h-52 bg-purple-900/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-16 -left-16 w-44 h-44 bg-purple-800/8 rounded-full blur-3xl pointer-events-none" />
 
-        {/* Logo */}
         <div className="flex items-center gap-3 mb-7">
           <div className="w-[42px] h-[42px] bg-gradient-to-br from-purple-600 to-purple-800 rounded-[12px] flex items-center justify-center border border-white/10">
             <i className="fas fa-shield-alt text-white text-sm" />
@@ -50,17 +46,14 @@ const AuthPage = () => {
           </div>
         </div>
 
-        {/* Forms */}
-        {isLogin ? <LoginForm /> : <SignUpForm />}
+        {isLogin ? <LoginForm /> : <SignUpForm onSuccess={() => setIsLogin(true)} />}
 
-        {/* Divider */}
         <div className="flex items-center gap-3 my-5">
           <div className="flex-1 h-px bg-white/5" />
           <span className="text-[11px] text-[#2e2e4a] uppercase tracking-[0.5px] font-medium">or</span>
           <div className="flex-1 h-px bg-white/5" />
         </div>
 
-        {/* Google */}
         <button className="w-full bg-[#0a0a15] border border-white/[0.06] rounded-[14px] py-[13px] flex items-center justify-center gap-2.5 hover:bg-[#0f0f1e] hover:border-purple-900/30 transition-all duration-200">
           <img
             src="https://www.svgrepo.com/show/475656/google-color.svg"
@@ -70,7 +63,6 @@ const AuthPage = () => {
           <span className="text-[13px] font-medium text-[#5a5a7a]">Continue with Google</span>
         </button>
 
-        {/* Switch link */}
         <p className="text-center text-[12px] text-[#2e2e4a] mt-5">
           {isLogin ? "Don't have an account? " : "Already have an account? "}
           <button

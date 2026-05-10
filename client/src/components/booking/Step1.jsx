@@ -2,13 +2,11 @@ import { motion } from "framer-motion";
 import { HoverCards } from "../HoverCard";
 const Step1 = ({ next, data, setData }) => {
   
-  // قائمة المدن
   const cities = [
     { id: 'sfax', title: 'Sfax', price: 'Tunisia' },
     { id: 'sousse', title: 'Sousse', price: 'Tunisia' },
   ];
 
-  // قائمة الخدمات
   const services = [
     { id: 1, title: 'Residential Cleaning', price: 'From 50 DT' },
     { id: 2, title: 'Office Cleaning', price: 'From 80 DT' },
@@ -18,10 +16,8 @@ const Step1 = ({ next, data, setData }) => {
 
   return (
     <div className="w-full max-w-4xl mx-auto">
-      {/* الـ Container الكبير الغامق */}
       <div className="bg-[#0c0c0e] border border-white/5 p-8 rounded-[32px] shadow-2xl">
         
-        {/* القسم الأول: Select City */}
         <div className="mb-10">
           <h2 className="text-white text-lg font-semibold mb-6 ml-1">Select City</h2>
           <HoverCards className='focus:bg-brand-purpleLight'
@@ -31,7 +27,6 @@ const Step1 = ({ next, data, setData }) => {
           />
         </div>
 
-        {/* القسم الثاني: Select Service Type */}
         <div className="mb-6">
           <h2 className="text-white text-lg font-semibold mb-6 ml-1">Select Service Type</h2>
           <HoverCards 
@@ -42,7 +37,6 @@ const Step1 = ({ next, data, setData }) => {
         </div>
       </div>
 
-      {/* البوتون يجي لبرة مالـ Container لوطة على اليمين كينما التصويرة */}
       <div className="flex justify-end mt-8">
         <button 
           onClick={next}

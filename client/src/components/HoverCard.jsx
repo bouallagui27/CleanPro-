@@ -26,8 +26,6 @@ export const HoverCards = ({ items, onSelect, selectedId }) => {
             )}
           </AnimatePresence>
 
-          {/* الكرت بيدو */}
-         {/* الكرت بيدو */}
 <div className={`relative z-20 rounded-2xl h-full w-full p-4 overflow-hidden border transition-all duration-500 
   ${selectedId === item.id 
     ? 'bg-gradient-to-t from-brand-purple to-brand-purpleLight border-brand-purpleLight shadow-[0_0_30px_rgba(168,85,247,0.4)]' 
@@ -42,7 +40,6 @@ export const HoverCards = ({ items, onSelect, selectedId }) => {
       </p>
     </div>
 
-    {/* لقطة زينة: Glow خفيف في لخر متاع الكرت من فوق */}
     {selectedId === item.id && (
       <div className="absolute top-0 left-0 w-full h-full bg-white/5 pointer-events-none" />
     )}

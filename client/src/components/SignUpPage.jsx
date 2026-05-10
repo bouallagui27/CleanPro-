@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import InputField from "./InputField";
 import axios from "axios";
 
-const SignUpForm = () => {
+const SignUpForm = ( { onSuccess } ) => {
   const [pw, setPw] = useState("");
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -12,7 +12,6 @@ const SignUpForm = () => {
 const fetchData = async (e) => {
      e.preventDefault(); 
     try {
-        // حط العنوان كامل باش تضمن الربط حالياً
         const response = await axios.post('http://localhost:3000/users/users', {
             firstName,
             lastName,
@@ -23,10 +22,12 @@ const fetchData = async (e) => {
         
         if (response.status === 201) {
             alert("Account created successfully! 🎉");
-             // هوني تنجم تهزو لصفحة الـ Login
+            onSuccess(); // Call the onSuccess function to switch to the login form
+            
+        }else{
+          alert("Unexpected response from server. Please try again.");
         }
     } catch (error) {
-        // هوني تخرج الـ Error اللي يبعثو السيرفر (مثلاً Email already exists)
         console.error("Error details:", error.response?.data || error.message);
         alert(error.response?.data?.message || "Something went wrong!");
     }
@@ -71,7 +72,6 @@ const fetchData = async (e) => {
         onChange={(e) => setPhone(e.target.value)}
         icon={<i className="fas fa-phone" />} />
 
-      {/* Password + strength bar */}
       <div className="mb-3">
         <InputField
           placeholder="Password"

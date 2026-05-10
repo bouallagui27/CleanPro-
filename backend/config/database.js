@@ -17,4 +17,4 @@ const db = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.D
     }catch(err){
         console.error('connect failed');
  }}
-module.exports = { db, connectdb }; // هذي هي اللغة اللي يفهمها الـ require
+module.exports = { db, connectdb };

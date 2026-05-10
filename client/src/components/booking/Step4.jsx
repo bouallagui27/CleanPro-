@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
-import axios from "axios"; // استعمل axios بحروف صغيرة أحسن (الـ Standard)
+import axios from "axios";
 
 const Step4 = ({ back, data, setData }) => {
 
-  // الدالة اللي تبعث الداتا للـ Backend
   const fetchBooking = async () => {
     try {
-      // ثبت في الـ Port (3000) والـ Path الصحيح
+     
       const response = await axios.post('http://localhost:3000/bookings/create', data); 
       console.log("✅ Booking Saved:", response.data);
       alert("Booking Confirmed Successfully!");
@@ -16,10 +15,9 @@ const Step4 = ({ back, data, setData }) => {
     }
   };
 
-  // الدالة اللي تخدم كي تنزل على البوتون
   const handleConfirm = () => {
     console.log("Sending data to server...", data);
-    fetchBooking(); // ناديو الدالة اللي تبعث للأكسيوس هوني
+    fetchBooking(); 
   };
 
   return (
@@ -28,7 +26,7 @@ const Step4 = ({ back, data, setData }) => {
       animate={{ opacity: 1, scale: 1 }} 
       className="space-y-8"
     >
-      {/* --- Summary Box (كودك مريغل هوني) --- */}
+      
       <div className="bg-purple-600/10 border border-purple-500/20 p-6 rounded-[24px] mb-8">
         <h3 className="text-purple-400 font-bold mb-4 uppercase text-[10px] tracking-[3px]">
           Booking Summary
@@ -50,7 +48,6 @@ const Step4 = ({ back, data, setData }) => {
         </div>
       </div>
 
-      {/* --- Input Fields --- */}
       <div className="space-y-4">
         <input 
           type="text" 
@@ -77,7 +74,6 @@ const Step4 = ({ back, data, setData }) => {
         />
       </div>
 
-      {/* --- Buttons --- */}
       <div className="flex justify-between mt-10">
         <button onClick={back} className="text-gray-500 hover:text-white transition-colors">
           ← Previous
