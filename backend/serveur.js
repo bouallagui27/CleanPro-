@@ -5,7 +5,7 @@ const { connectdb, db } = require('./config/database');
 
 const User = require('./models/user');
 const Booking = require('./models/booking');
-const bookingRoutes = require('./routes/BookingRoute');
+const bookingRoutes = require('./routes/Bookingroute');
 const userRoutes = require('./routes/UserRoute');
 
 User.hasMany(Booking, { foreignKey: 'userId', onDelete: 'CASCADE' });
