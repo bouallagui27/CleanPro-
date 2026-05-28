@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const { connectdb, db } = require('./config/database');
 
-const User = require('./models/User');
+const User = require('./models/user');
 const Booking = require('./models/Booking');
 const bookingRoutes = require('./routes/BookingRoute');
 const userRoutes = require('./routes/UserRoute');
