@@ -6,7 +6,7 @@ const Step4 = ({ back, data, setData }) => {
   const fetchBooking = async () => {
     try {
      
-      const response = await axios.post('http://localhost:3000/bookings/create', data); 
+      const response = await axios.post('https://cleanpro-2.onrender.com/bookings/create', data); 
       console.log("✅ Booking Saved:", response.data);
       alert("Booking Confirmed Successfully!");
     } catch (error) {
