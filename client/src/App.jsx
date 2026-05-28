@@ -4,7 +4,7 @@ import Lenis from '@studio-freight/lenis'
 import AOS from 'aos'
 import 'aos/dist/aos.css' 
 
-import Landingpage from "./components/Landingpage";
+import Landingpage from "./components/LandingPage";
 import BookingPage from './components/BookingPage';
 import CustomCursor from './components/CustomCursor'
 import AuthPage from './components/AuthPage';
