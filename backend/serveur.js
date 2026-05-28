@@ -4,7 +4,7 @@ const cors = require('cors');
 const { connectdb, db } = require('./config/database');
 
 const User = require('./models/user');
-const Booking = require('./models/Booking');
+const Booking = require('./models/booking');
 const bookingRoutes = require('./routes/BookingRoute');
 const userRoutes = require('./routes/UserRoute');
 
