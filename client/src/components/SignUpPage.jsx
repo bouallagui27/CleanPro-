@@ -12,7 +12,7 @@ const SignUpForm = ( { onSuccess } ) => {
 const fetchData = async (e) => {
      e.preventDefault(); 
     try {
-        const response = await axios.post('http://localhost:3000/users/users', {
+        const response = await axios.post('https://cleanpro-2.onrender.com/users/users', {
             firstName,
             lastName,
             email,

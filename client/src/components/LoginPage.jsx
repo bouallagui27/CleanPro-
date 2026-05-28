@@ -11,12 +11,12 @@ const LoginForm = () => {
   const loginUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await AXIOS.post('http://localhost:3000/login/login', { email, password })
+      const response = await AXIOS.post('https://cleanpro-2.onrender.com/login/login', { email, password })
       if (response.status === 200) {  
       alert("Login successful! 🎉");
       localStorage.setItem("token", response.data.token);
       navigate('/booking');} // Navigate to the dashboard upon successful login
-    } catch (error) {
+    } catch (error) { // Handle login errors
       console.error('Login error:', error);
     }
   };
